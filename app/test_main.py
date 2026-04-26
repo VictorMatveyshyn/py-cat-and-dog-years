@@ -9,17 +9,46 @@ class TestConvertCatDogAges:
         [
             pytest.param(
                 0,
+                0,
+                [0, 0],
+                id="should get human age when catdog ages are 0"
+            ),
+            pytest.param(
+                14,
                 14,
                 [0, 0],
-                id="should get human age before 15 catdog ages"
+                id="should get human age when catdog ages are 14"
             ),
             pytest.param(
                 15,
+                15,
+                [1, 1],
+                id="should get human age when catdog ages are 15"
+            ),
+            pytest.param(
+                23,
                 23,
                 [1, 1],
-                id="should get human age between 15-24 catdog ages"
+                id="should get human age when catdog ages are 23"
             ),
-            # test_should_get_human_age_more_then_24_catdog_ages
+            pytest.param(
+                24,
+                24,
+                [2, 2],
+                id="should get human age when catdog ages are 24"
+            ),
+            pytest.param(
+                27,
+                27,
+                [2, 2],
+                id="should get human age when catdog ages are 27"
+            ),
+            pytest.param(
+                28,
+                28,
+                [3, 2],
+                id="should get human age when catdog ages are 28"
+            ),
             pytest.param(
                 100,
                 100,
@@ -57,7 +86,7 @@ class TestWrongInput:
 
         ]
     )
-    def test_raisim(
+    def test_raisin(
             self,
             cat_age: int,
             dog_age: int,
